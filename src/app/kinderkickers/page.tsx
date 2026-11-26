@@ -34,6 +34,7 @@ export default function KinderKickers() {
         title="KinderKickers"
         label="Pre-K & Kindergarten"
         intro="An enjoyable non-competitive program, led by professional trainers from Go2Soccer, designed to help our youngest soccer players develop basic soccer skills."
+        image={{ src: "/photos/lsc-balls.jpg", alt: "A smiling young girl sitting in a pile of green and white Livingston Soccer Club balls", width: 1337, height: 1600, ratio: "4 / 5", position: "50% 30%" }}
       >
         <a href={site.registrationUrl} target="_blank" rel="noreferrer" className="btn btn--yellow">
           Click here to register <Arrow dir="out" />

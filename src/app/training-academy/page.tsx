@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Arrow } from "@/lib/components/icons"
 import NextSteps from "@/lib/components/next-steps"
 import PageHeader from "@/lib/components/page-header"
+import Photo from "@/lib/components/photo"
 
 export const metadata: Metadata = {
   title: "Training Academy",
@@ -14,7 +15,7 @@ const clinics = ["Technique", "Footwork", "Goalscoring", "Goalkeeping"]
 export default function TrainingAcademy() {
   return (
     <>
-      <PageHeader title="Training Academy" label="Camps & clinics" intro="Clinics and camps from our partners, for players who want more soccer outside the Fall season." />
+      <PageHeader title="Training Academy" label="Camps & clinics" />
 
       {/* Kickz: the club's own announcement. */}
       <section aria-labelledby="kickz" className="on-chalk bg-chalk">
@@ -52,13 +53,12 @@ export default function TrainingAcademy() {
       {/* Red Bulls. */}
       <section aria-labelledby="red-bulls" className="bg-pitch text-chalk">
         <div className="wrap grid12 items-center gap-y-10 py-[var(--s-normal)]">
-          <div className="col-span-12 md:col-span-3">
-            <div className="inline-block bg-chalk p-5">
-              <Image src="/partners/red-bulls.png" alt="New York Red Bulls" width={179} height={154} className="h-24 w-auto" />
+          <Photo src="/photos/fall-2026/redd-fans.jpg" alt="Redd, the New York Red Bulls mascot, posing with LSC families and a child in a pumpkin costume" width={1600} height={1338} ratio="5 / 4" sizes="(min-width: 768px) 40vw, 94vw" mark="chalk" caption="Redd with LSC fans, October 31, 2026" captionClassName="text-chalk/80" className="col-span-12 md:col-span-5" />
+          <div className="col-span-12 md:col-span-6 md:col-start-7">
+            <div className="inline-block bg-chalk p-3">
+              <Image src="/partners/red-bulls.png" alt="New York Red Bulls" width={179} height={154} className="h-14 w-auto" />
             </div>
-          </div>
-          <div className="col-span-12 md:col-span-8 md:col-start-5">
-            <h2 id="red-bulls" className="t-h2" data-reveal="">
+            <h2 id="red-bulls" className="t-h2 mt-8" data-reveal="">
               Red Bulls Academy
             </h2>
             <p className="t-lede mt-6 max-w-[38rem] text-chalk/90" data-reveal="">

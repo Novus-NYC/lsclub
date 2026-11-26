@@ -15,8 +15,6 @@ export default function Contacts() {
     <>
       <PageHeader
         title="Contacts"
-        label="Club Info"
-        intro="Livingston Soccer Club is a volunteer organization. All Board Members volunteer their time for the benefit of the children who play in our club."
       />
 
       <section aria-labelledby="board" className="on-chalk bg-chalk">

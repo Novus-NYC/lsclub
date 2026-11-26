@@ -12,3 +12,7 @@ research/raw/
 research/pdf/*.pdf
 !.env.example
 .previews/
+research/web/img/*
+!research/web/img/SOURCES.md
+research/web/ig/*.jpg
+research/web/ig/urls.tsv

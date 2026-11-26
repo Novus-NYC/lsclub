@@ -7,22 +7,27 @@ import Photo from "@/lib/components/photo"
 
 export const metadata: Metadata = {
   title: "News",
-  description: "Club news from Livingston Soccer Club: the Lancers, the Carpini Cup, the Award Ceremony, Coach of the Year, age groups and more.",
+  description: "Club news from Livingston Soccer Club: Fall 2026 Travel champions, the Lancers, the Carpini Cup, the Award Ceremony, Coach of the Year, age groups and more.",
 }
 
 export default function News() {
   const [lead, ...rest] = news
   return (
     <>
-      <PageHeader title="Club news" label="Headlines" intro="Results, awards and updates from around the club." />
+      <PageHeader title="Club news" />
       <section aria-label="All posts" className="on-chalk bg-chalk">
         <div className="wrap py-[var(--s-normal)]">
-          <Link href={`/news/${lead.slug}`} className="group block border-b-2 border-pitch pb-[var(--s-tight)]" data-reveal="">
-            <p className="label text-turf">Livingston HS girls</p>
-            <h2 className="t-h2 mt-4 max-w-[16ch] text-pitch">
-              <span className="draw">{lead.title}</span>
-            </h2>
-            <p className="t-lede mt-6 max-w-[40rem]">{lead.summary}</p>
+          <Link href={`/news/${lead.slug}`} className="grid12 group items-end gap-y-8 border-b-2 border-pitch pb-[var(--s-tight)]" data-reveal="">
+            {lead.image ? (
+              <Photo src={lead.image.src} alt={lead.image.alt} width={lead.image.width} height={lead.image.height} ratio="3 / 2" sizes="(min-width: 1024px) 54vw, 94vw" mark="pitch" priority className="col-span-12 lg:col-span-7" />
+            ) : null}
+            <div className="col-span-12 lg:col-span-5">
+              {lead.date ? <p className="label text-turf">{lead.date}</p> : null}
+              <h2 className="t-h2 mt-4 text-pitch">
+                <span className="draw">{lead.title}</span>
+              </h2>
+              <p className="t-lede mt-6">{lead.summary}</p>
+            </div>
           </Link>
           <ul className="grid gap-x-[var(--gutter)] md:grid-cols-2">
             {rest.map((n, i) => (

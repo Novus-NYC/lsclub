@@ -22,7 +22,6 @@ export default function SafeSport() {
     <>
       <PageHeader
         title="Safe Sport"
-        label="Club Info"
         intro="It is critical that we continue our commitment to the protection of our youth athletes, so that everyone can enjoy playing soccer safely. If you see something, say something."
       />
 

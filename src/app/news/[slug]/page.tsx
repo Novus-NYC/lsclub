@@ -3,7 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getNews, news } from "@/data/news"
-import { ageGroups, carpiniCup, clubFile, site } from "@/data/site"
+import { ageGroups, carpiniCup, clubFile, fall2026, instagram, site } from "@/data/site"
 import { Arrow } from "@/lib/components/icons"
 import NextSteps from "@/lib/components/next-steps"
 import PageHeader from "@/lib/components/page-header"
@@ -20,6 +20,27 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 // Each post's body, from the club's own page for it.
 const bodies: Record<string, React.ReactNode> = {
+  "fall-2026-travel-champions": (
+    <div>
+      <ol className="space-y-[clamp(3rem,6vw,5rem)]">
+        {fall2026.map((t, i) => (
+          <li key={t.team}>
+            <Photo src={t.photo.src} alt={t.photo.alt} width={t.photo.w} height={t.photo.h} sizes="(min-width: 1024px) 60vw, 94vw" mark={i % 2 ? "yellow" : "pitch"} priority={i === 0} />
+            <h2 className="mt-6 font-display text-[clamp(2rem,1.4rem+2vw,3.25rem)] leading-none text-pitch">{t.team}</h2>
+            <p className="mt-2 text-[1.1875rem]">{t.result}</p>
+          </li>
+        ))}
+      </ol>
+      <p className="mt-12 text-[1.0625rem] text-muted">
+        Photos from the club&rsquo;s{" "}
+        <a href={instagram} target="_blank" rel="noreferrer" className="ul font-semibold text-turf">
+          Instagram
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
+        .
+      </p>
+    </div>
+  ),
   "lancers-sectional-champions": (
     <div className="prose-club t-lede">
       <p>
@@ -56,6 +77,10 @@ const bodies: Record<string, React.ReactNode> = {
           ))}
         </tbody>
       </table>
+      <div className="mt-14 grid gap-[var(--gutter)] sm:grid-cols-2">
+        <Photo src="/photos/fall-2026/g56-cape-verde.jpg" alt="Grade 5 and 6 girls in green sitting on the grass at the championship ceremony as trophies are handed out" width={1600} height={1200} ratio="4 / 5" position="60% 50%" sizes="(min-width: 640px) 30vw, 94vw" mark="pitch" caption="5/6 Girls: Cape Verde 3, Portugal 1" captionClassName="text-muted" />
+        <Photo src="/photos/fall-2026/g34-pegasus-a.jpg" alt="Grade 3 and 4 girls in yellow and pink sitting together by the field at the championship ceremony" width={1600} height={1600} ratio="4 / 5" sizes="(min-width: 640px) 30vw, 94vw" mark="yellow" caption="3/4 Girls: Pegasus for the win" captionClassName="text-muted" className="sm:mt-16" />
+      </div>
     </div>
   ),
   "award-ceremony-2026": (
@@ -63,6 +88,7 @@ const bodies: Record<string, React.ReactNode> = {
       <p className="prose-club t-lede">Three best LHS soccer players were awarded during the LSC Award Ceremony on June 2, 2026.</p>
       <div className="mt-10 border-t-2 border-pitch pt-6">
         <h2 className="font-display text-[clamp(1.75rem,1.3rem+1.4vw,2.5rem)] leading-none text-pitch">2026 Delman Scholarship Award recipients</h2>
+        <p className="mt-3 max-w-[36rem] text-muted">Named for Steve Delman, a former club president and longtime coach who served over 40 years on the LSC Board.</p>
         <ul className="mt-5 grid gap-x-8 text-[1.1875rem] font-semibold sm:grid-cols-2">
           {["Sophia Botea", "Hunter Lantzman", "Zoey Culver", "Sarah Kiareldeen", "Benjamin Murkis", "Mason Miller"].map((n) => (
             <li key={n} className="border-b-2 border-pitch/20 py-2.5">

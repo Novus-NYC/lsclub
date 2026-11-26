@@ -4,6 +4,7 @@ import { faqDocs } from "@/data/site"
 import DocList from "@/lib/components/doc-list"
 import NextSteps from "@/lib/components/next-steps"
 import PageHeader from "@/lib/components/page-header"
+import Photo from "@/lib/components/photo"
 
 export const metadata: Metadata = {
   title: "FAQs",
@@ -48,7 +49,7 @@ const faqs: { q: string; a: React.ReactNode }[] = [
 export default function Faqs() {
   return (
     <>
-      <PageHeader title="FAQs" label="FAQs about InTown Soccer 2026" intro="Most answers are here. If not, ask your coach, then your Grade Coordinator." />
+      <PageHeader title="FAQs" label="FAQs about InTown Soccer 2026" />
 
       <section aria-labelledby="questions" className="on-chalk bg-chalk">
         <div className="wrap grid12 gap-y-12 py-[var(--s-normal)]">
@@ -74,6 +75,7 @@ export default function Faqs() {
                 Other frequently asked questions
               </h2>
               <DocList docs={faqDocs} className="mt-6" />
+              <Photo src="/photos/young-team-trophies.jpg" alt="Young players in blue Livingston Soccer Club shirts holding up small trophies, with their coach behind them" width={1600} height={1081} ratio="3 / 2" sizes="(min-width: 1024px) 30vw, 94vw" mark="pitch" className="mt-12" />
             </div>
           </aside>
         </div>

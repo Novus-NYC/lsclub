@@ -11,6 +11,13 @@ export type NewsItem = {
 
 export const news: NewsItem[] = [
   {
+    slug: "fall-2026-travel-champions",
+    title: "Fall 2026 Travel champions",
+    date: "November 23, 2026",
+    summary: "Four Livingston Travel teams won their flights this fall: the U11 Monarchs, U13 Wildcats and U14 United in MCYSA, and the U12 Girls Liberty at the Branchburg Fall Classic.",
+    image: { src: "/photos/fall-2026/u11-monarchs-mcysa.jpg", alt: "The U11 Monarchs, in white, holding up one finger each after winning their MCYSA flight", width: 1600, height: 1017 },
+  },
+  {
     slug: "lancers-sectional-champions",
     title: "Second consecutive sectional title",
     summary:
@@ -18,9 +25,10 @@ export const news: NewsItem[] = [
   },
   {
     slug: "carpini-cup-results",
-    title: "Carpini Cup results",
+    title: "2026 Carpini Cup results",
+    date: "November 1, 2026",
     summary: "Champions and finalists from every grade of the season-ending tournament.",
-    image: { src: "/photos/carpini-cup-trophy.jpg", alt: "Players in green shirts holding up a trophy", width: 236, height: 244 },
+    image: { src: "/photos/fall-2026/g56-cape-verde.jpg", alt: "Grade 5 and 6 girls in green at the championship ceremony as trophies are handed out", width: 1600, height: 1200 },
   },
   {
     slug: "award-ceremony-2026",

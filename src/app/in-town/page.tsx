@@ -5,6 +5,7 @@ import DocList from "@/lib/components/doc-list"
 import { Arrow } from "@/lib/components/icons"
 import NextSteps from "@/lib/components/next-steps"
 import PageHeader from "@/lib/components/page-header"
+import Photo from "@/lib/components/photo"
 
 export const metadata: Metadata = {
   title: "In-Town",
@@ -91,7 +92,8 @@ export default function InTown() {
       <PageHeader
         title="In-Town"
         label="Grades 1 to 12"
-        intro="Weekend games with volunteer coaches, from the weekend after Labor Day to the Carpini Cup. Everything for the 2026 season is on this page."
+        intro="Weekend games with volunteer coaches, from the weekend after Labor Day to the Carpini Cup."
+        image={{ src: "/photos/fall-2026/b79-newcastle-chelsea.jpg", alt: "A grade 7 to 9 boys game, Newcastle against Chelsea, under red and orange fall trees", width: 1600, height: 1454, caption: "7 to 9 Boys: Newcastle v Chelsea, October 31, 2026" }}
       >
         <a href={site.registrationUrl} target="_blank" rel="noreferrer" className="btn btn--yellow">
           Registration <Arrow dir="out" />
@@ -190,9 +192,12 @@ export default function InTown() {
       {/* Rules and forms. */}
       <section aria-labelledby="rules" className="on-chalk bg-chalk">
         <div className="wrap grid12 gap-y-10 py-[var(--s-normal)]">
-          <h2 id="rules" className="t-h2 col-span-12 text-pitch lg:col-span-4" data-reveal="">
-            Rules, forms &amp; field diagrams
-          </h2>
+          <div className="col-span-12 lg:col-span-4">
+            <h2 id="rules" className="t-h2 text-pitch" data-reveal="">
+              Rules, forms &amp; field diagrams
+            </h2>
+            <Photo src="/photos/fall-2026/ref-squad.jpg" alt="Three teenage referees in orange referee shirts standing on the field" width={1376} height={1600} ratio="4 / 5" sizes="(min-width: 1024px) 28vw, 80vw" mark="yellow" caption="Ref Squad, October 31, 2026" captionClassName="text-muted" className="mt-10 max-w-[22rem]" />
+          </div>
           <div className="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="">
             <DocList
               docs={[

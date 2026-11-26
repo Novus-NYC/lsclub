@@ -41,6 +41,7 @@ export default function Travel() {
         title="Travel"
         label="U8 to U19"
         intro="The purpose of LSC Travel is to foster organized soccer at a more competitive level, and give the more dedicated and committed Livingston athlete the chance to develop into the best soccer player possible."
+        image={{ src: "/photos/fall-2026/u13-wildcats-mcysa.jpg", alt: "The U13 Wildcats in green on a turf field after winning their MCYSA flight", width: 1600, height: 1200, caption: "U13 Wildcats, MCYSA flight winners, Fall 2026" }}
       >
         <a href={site.registrationUrl} target="_blank" rel="noreferrer" className="btn btn--yellow">
           Registration <Arrow dir="out" />
@@ -132,8 +133,7 @@ export default function Travel() {
       <section aria-labelledby="tryouts" className="on-chalk bg-chalk">
         <div className="wrap grid12 gap-y-10 py-[var(--s-normal)]">
           <div className="col-span-12 lg:col-span-6">
-            <p className="label text-turf">Team formation</p>
-            <h2 id="tryouts" className="t-h2 mt-4 text-pitch" data-reveal="">
+            <h2 id="tryouts" className="t-h2 text-pitch" data-reveal="">
               Tryouts are typically held in May
             </h2>
             <div className="prose-club mt-6 text-[1.125rem]" data-reveal="">

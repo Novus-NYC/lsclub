@@ -29,8 +29,8 @@ export default function Legends() {
     <>
       <PageHeader
         title="Legends"
-        label="Past Livingston Legends winners"
-        intro="Welcome to Legends! Congratulations!!"
+        label="Adult league"
+        intro="The club’s co-ed league for Livingston residents 30 and up. It started in fall 2010 as GeezerKickers."
         image={{ src: "/photos/legends-2023.jpg", alt: "The 2023 Legends winners celebrating in front of the goal at night", width: 1232, height: 840, caption: "2023: A Liver Runs Through It", ratio: "4 / 3" }}
       />
 
@@ -48,6 +48,12 @@ export default function Legends() {
               </li>
             ))}
           </ol>
+          <div className="mt-[var(--s-tight)] grid12 gap-y-4" data-reveal="">
+            <h3 className="col-span-12 font-display text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] leading-none text-pitch lg:col-span-4">The 2019 rosters</h3>
+            <p className="col-span-12 text-[clamp(1.25rem,1.1rem+0.6vw,1.625rem)] font-semibold leading-snug lg:col-span-8">
+              Chafing the Dream. The Untouchaballs. Dye Another Gray. Dust in the Winded. Agony of De Feet. Triple By Pass.
+            </p>
+          </div>
         </div>
       </section>
 

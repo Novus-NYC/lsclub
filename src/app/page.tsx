@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ageGroups, carpiniCup, fields, legendsWinners, partners, site } from "@/data/site"
+import { ageGroups, carpiniCup, fall2026, fields, legendsWinners, partners, site } from "@/data/site"
 import { Arrow, CenterCircle } from "@/lib/components/icons"
 import Photo from "@/lib/components/photo"
 
@@ -75,7 +75,7 @@ export default function Home() {
                 Practice with Purpose! Play with Passion!
               </p>
               <p className="t-lede mt-6 text-chalk/90" data-reveal="" style={{ "--i": 1 } as React.CSSProperties}>
-                The volunteer-run, non-profit soccer club for Livingston kids, from KinderKickers through high school.
+                Youth and adult Travel and In-Town soccer, run by volunteers promoting skill, teamwork, friendships and fun.
               </p>
               <div className="mt-8 flex flex-wrap gap-3" data-reveal="" style={{ "--i": 2 } as React.CSSProperties}>
                 <a href={site.registrationUrl} target="_blank" rel="noreferrer" className="btn btn--yellow">
@@ -88,14 +88,14 @@ export default function Home() {
               </div>
             </div>
             <Photo
-              src="/photos/award-ceremony-2026.jpg"
-              alt="Players at the LSC Award Ceremony"
+              src="/photos/fall-2026/hs-boys-division.jpg"
+              alt="High school boys in green lifting a trophy on a sunny fall day"
               width={1200}
-              height={2132}
+              height={1600}
               ratio="4 / 5"
-              position="50% 38%"
+              position="50% 30%"
               sizes="(min-width: 1024px) 34vw, (min-width: 768px) 44vw, 88vw"
-              caption="LSC Award Ceremony, June 2, 2026"
+              caption="In-Town HS Boys division, November 1, 2026"
               captionClassName="text-muted"
               mark="split"
               priority
@@ -105,27 +105,46 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. The Lancers. */}
-      <section aria-labelledby="lancers" className="on-chalk bg-chalk">
-        <div className="wrap grid12 items-end gap-y-10 pb-[var(--s-normal)] pt-[var(--s-tight)]">
-          <div className="col-span-12 lg:col-span-7">
-            <p className="label text-turf" data-reveal="">
-              Livingston HS girls
-            </p>
-            <h2 id="lancers" className="t-h2 mt-4 text-pitch" data-reveal="">
-              Second consecutive sectional title
-            </h2>
-            <p className="t-lede mt-6 max-w-[38rem]" data-reveal="">
-              The top-seeded Livingston HS girls soccer team won the 2026 NJSIAA North Jersey, Section 1, Group 4 championship, defeating 3rd-seeded Ridgewood 3–2 in a shootout. Congrats!
-            </p>
-          </div>
-          <div className="col-span-12 border-l-2 border-pitch pl-[var(--gutter)] lg:col-span-4 lg:col-start-9" data-reveal="">
-            <p className="label text-muted">Final, vs. Ridgewood</p>
-            <p className="tabular-nums font-display text-[clamp(6rem,4rem+8vw,11rem)] leading-[0.85] text-pitch">3–2</p>
-            <p className="mt-3 font-semibold">in a shootout</p>
-            <Link href="/news/lancers-sectional-champions" className="group mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-turf">
-              <span className="draw">Read the post</span> <Arrow />
+      {/* 2. This fall's trophies: one big team photo, the titles listed beside it. */}
+      <section aria-labelledby="champions" className="on-chalk bg-chalk">
+        <div className="wrap pb-[var(--s-normal)] pt-[var(--s-tight)]">
+          <h2 id="champions" className="t-h2 text-pitch" data-reveal="">
+            Fall 2026 champions
+          </h2>
+          <div className="grid12 mt-[clamp(2rem,4vw,3.5rem)] items-start gap-y-10">
+            <Link href="/news/fall-2026-travel-champions" className="group col-span-12 lg:col-span-7">
+              <Photo
+                src={fall2026[0].photo.src}
+                alt={fall2026[0].photo.alt}
+                width={fall2026[0].photo.w}
+                height={fall2026[0].photo.h}
+                ratio="3 / 2"
+                position="50% 45%"
+                sizes="(min-width: 1024px) 54vw, 94vw"
+                mark="pitch"
+              />
             </Link>
+            <div className="col-span-12 lg:col-span-4 lg:col-start-9">
+              <ul className="border-t-2 border-pitch">
+                {fall2026.map((t, i) => (
+                  <li key={t.team} className="border-b-2 border-pitch/25 py-4" data-reveal="" style={{ "--i": i } as React.CSSProperties}>
+                    <p className="font-display text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] leading-none text-pitch">{t.team}</p>
+                    <p className="mt-1.5 text-[1.0625rem]">{t.result}</p>
+                  </li>
+                ))}
+                <li className="border-b-2 border-pitch/25 py-4" data-reveal="" style={{ "--i": 4 } as React.CSSProperties}>
+                  <Link href="/news/lancers-sectional-champions" className="group block">
+                    <p className="font-display text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] leading-none text-pitch">
+                      <span className="draw">Livingston HS Girls</span>
+                    </p>
+                    <p className="mt-1.5 text-[1.0625rem]">North 1, Group 4 sectional title, 3&ndash;2 over Ridgewood in a shootout</p>
+                  </Link>
+                </li>
+              </ul>
+              <Link href="/news/fall-2026-travel-champions" className="btn btn--pitch mt-8">
+                Team photos <Arrow />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -133,14 +152,9 @@ export default function Home() {
       {/* 3. Programs, lettered like markings on the turf. */}
       <section id="programs" aria-labelledby="programs-title" className="bg-turf text-chalk">
         <div className="wrap py-[var(--s-normal)]">
-          <div className="grid12 items-end gap-y-6">
-            <h2 id="programs-title" className="t-h2 col-span-12 lg:col-span-6" data-reveal="">
-              Find your program
-            </h2>
-            <p className="t-lede col-span-12 text-chalk/90 lg:col-span-5 lg:col-start-8" data-reveal="">
-              Four programs, from Pre-K KinderKickers to high school In-Town and competitive Travel.
-            </p>
-          </div>
+          <h2 id="programs-title" className="t-h2" data-reveal="">
+            Find your program
+          </h2>
           <ul className="mt-[clamp(2.5rem,5vw,4rem)] border-t-2 border-chalk/40">
             {programs.map((p, i) => (
               <li key={p.href} className="border-b-2 border-chalk/40" data-reveal="" style={{ "--i": i } as React.CSSProperties}>
@@ -164,23 +178,27 @@ export default function Home() {
       <section aria-labelledby="carpini" className="on-chalk bg-yellow text-pitch">
         <div className="wrap grid12 gap-y-12 py-[var(--s-normal)]">
           <div className="col-span-12 lg:col-span-4">
-            <p className="label" data-reveal="">
-              In-Town finals
-            </p>
-            <h2 id="carpini" className="t-h2 mt-4" data-reveal="">
-              Carpini Cup results
+            <h2 id="carpini" className="t-h2" data-reveal="">
+              2026 Carpini Cup
             </h2>
             <p className="mt-6 max-w-[26rem] text-[1.1875rem]" data-reveal="">
-              The season-ending tournament, named after the founder of our club, Phil Carpini, for grades 3 to 12.
+              The season-ending &ldquo;Second Chance&rdquo; tournament for grades 3 to 12, where anything can happen. Named after the founder of our club, Phil Carpini. The matchups are drawn live each October on the{" "}
+              <a href="https://www.livingstonnj.org/511/LTV-Sports" target="_blank" rel="noreferrer" className="ul font-semibold">
+                LTV Carpini Cup Selection Show
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              .
             </p>
             <Photo
-              src="/photos/carpini-cup-trophy.jpg"
-              alt="Players in green shirts holding up a trophy"
-              width={236}
-              height={244}
-              sizes="236px"
+              src="/photos/fall-2026/g56-cape-verde.jpg"
+              alt="Grade 5 and 6 girls in green sitting on the grass at the championship ceremony as trophies are handed out"
+              width={1600}
+              height={1200}
+              ratio="4 / 3"
+              sizes="(min-width: 1024px) 30vw, 94vw"
+              caption="5/6 Girls championship ceremony, November 1"
               mark="pitch"
-              className="mt-10 w-[min(100%,236px)]"
+              className="mt-10"
             />
           </div>
           <div className="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="">
@@ -224,17 +242,11 @@ export default function Home() {
       <section aria-labelledby="age-groups" className="on-chalk bg-chalk">
         <div className="wrap grid12 gap-y-10 py-[var(--s-normal)]">
           <div className="col-span-12 lg:col-span-5">
-            <p className="label text-turf" data-reveal="">
-              Travel Soccer News
-            </p>
-            <h2 id="age-groups" className="t-h2 mt-4 text-pitch" data-reveal="">
+            <h2 id="age-groups" className="t-h2 text-pitch" data-reveal="">
               2026&ndash;2027 age groups
             </h2>
             <p className="mt-6 max-w-[30rem] text-[1.1875rem]" data-reveal="">
-              Important update for parents and coaches: age groups will follow an August 1 to July 31 birthdate window, instead of the previous calendar-year format.
-            </p>
-            <p className="mt-4 max-w-[30rem] text-muted" data-reveal="">
-              Player age groups and team placement may change for the 2026&ndash;2027 season. Please consult club officials for team-specific roster and tryout guidance.
+              Age groups now follow an August 1 to July 31 birthdate window instead of the calendar year, so team placement may change.
             </p>
             <Link href="/travel" className="btn btn--outline mt-8" data-reveal="">
               Travel program <Arrow />
@@ -278,10 +290,7 @@ export default function Home() {
       <section aria-labelledby="coaches" className="relative overflow-clip bg-pitch text-chalk">
         <CenterCircle className="pointer-events-none absolute -left-[12rem] top-1/2 w-[36rem] -translate-y-1/2 text-chalk/10" />
         <div className="wrap relative py-[var(--s-loose)]">
-          <p className="label text-yellow" data-reveal="">
-            Coaches Corner
-          </p>
-          <h2 id="coaches" className="mt-5 max-w-[17ch] text-[clamp(2.5rem,1rem+5.6vw,6.5rem)] leading-[0.96]" data-reveal="">
+          <h2 id="coaches" className="max-w-[17ch] text-[clamp(2.5rem,1rem+5.6vw,6.5rem)] leading-[0.96]" data-reveal="">
             Kids don&rsquo;t care how much you know, until they know how much you care.
           </h2>
           <div className="grid12 mt-[clamp(3rem,6vw,5rem)] gap-y-10 border-t-2 border-chalk/40 pt-10">
@@ -313,7 +322,7 @@ export default function Home() {
               Legends
             </h2>
             <p className="t-lede col-span-12 pb-2 lg:col-span-4 lg:col-start-9" data-reveal="">
-              Welcome to Legends! Congratulations to every past Livingston Legends winner.
+              The club&rsquo;s co-ed adult league, for Livingston residents 30 and up.
             </p>
           </div>
           <Link href="/legends" className="group mt-8 block" aria-label="Legends: past winners and photos">
@@ -416,12 +425,10 @@ export default function Home() {
             <Link href="/news" className="btn btn--outline mt-8">
               All club news <Arrow />
             </Link>
-            <p className="mt-10 text-[1.0625rem]">
-              We have an LSClub Instagram page. Tag us in your photos!{" "}
-              <a href={site.social[0].href} target="_blank" rel="noreferrer" className="ul font-semibold text-turf">
-                @livingston_soccerclub
-              </a>
-            </p>
+            <a href={site.social[0].href} target="_blank" rel="noreferrer" className="group mt-8 flex min-h-11 items-center gap-2 font-semibold text-turf">
+              <span className="draw">Tag us: @livingston_soccerclub</span> <Arrow dir="out" />
+              <span className="sr-only"> (Instagram, opens in a new tab)</span>
+            </a>
           </div>
 
           <div className="col-span-12 mt-[var(--s-tight)] border-t-2 border-pitch/25 pt-8">

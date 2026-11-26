@@ -67,7 +67,7 @@ export const gradeCoordinators = [
 ]
 
 /** The ten town fields, with the map links from Field Directions. */
-export const fields = [
+export const fields: { name: string; map: string; note?: string }[] = [
   { name: "Burnet Hill", map: "https://goo.gl/maps/dNjKroeyrL7aRMvt8" },
   { name: "Harrison", map: "https://goo.gl/maps/9LYu8fWCDo759wP99" },
   { name: "Hillside", map: "https://goo.gl/maps/bMgRM9snKP8Lwcfo7" },
@@ -77,7 +77,7 @@ export const fields = [
   { name: "Northland (Basin)", map: "https://goo.gl/maps/p9V3tQxsqozkf6oR8" },
   { name: "Okner-Tevlin", map: "https://goo.gl/maps/HE5q4d1f3Z3wvHy98" },
   { name: "Riker Hill", map: "https://goo.gl/maps/hidcAcbkbKzid9Bh8" },
-  { name: "SBMC (Madonna Turf)", map: "https://goo.gl/maps/V9heByZdU9SmhRwGA" },
+  { name: "SBMC (Madonna Turf)", map: "https://goo.gl/maps/V9heByZdU9SmhRwGA", note: "Saint Barnabas Medical Center Community Field, 400 Madonna Drive, behind the high school" },
 ]
 
 export const fieldDiagrams: Doc[] = [
@@ -148,3 +148,13 @@ export const safeSportDocs: Doc[] = [
 ]
 
 export { f as clubFile }
+
+/** Fall 2026 titles, as the club posted them on Instagram (November 23, 2026). */
+export const fall2026 = [
+  { team: "U11 Monarchs", result: "MCYSA flight winners", photo: { src: "/photos/fall-2026/u11-monarchs-mcysa.jpg", w: 1600, h: 1017, alt: "The U11 Monarchs, in white, holding up one finger each after winning their MCYSA flight" } },
+  { team: "U12 Girls Liberty", result: "Branchburg Fall Classic flight champions", photo: { src: "/photos/fall-2026/u12g-liberty-branchburg.jpg", w: 1600, h: 1069, alt: "Livingston Liberty U12 girls with their medals in front of the Branchburg tournament banner" } },
+  { team: "U13 Wildcats", result: "MCYSA flight winners", photo: { src: "/photos/fall-2026/u13-wildcats-mcysa.jpg", w: 1600, h: 1200, alt: "The U13 Wildcats in green on a turf field after winning their MCYSA flight" } },
+  { team: "U14 United", result: "MCYSA flight winners", photo: { src: "/photos/fall-2026/u14-united-mcysa.jpg", w: 1600, h: 1006, alt: "U14 United in white in front of a goal after winning their MCYSA flight" } },
+]
+
+export const instagram = "https://www.instagram.com/livingston_soccerclub/"

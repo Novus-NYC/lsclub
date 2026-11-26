@@ -16,7 +16,6 @@ export default function Fields() {
     <>
       <PageHeader
         title="Fields & Directions"
-        label="Livingston soccer fields"
         intro="The Town of Livingston decides if fields are closed, based on weather and field conditions. Check the field status before you leave."
       >
         <a href={site.fieldStatusUrl} target="_blank" rel="noreferrer" className="btn btn--yellow">
@@ -35,8 +34,11 @@ export default function Fields() {
               {fields.map((f, i) => (
                 <li key={f.name} className="border-b-2 border-pitch/25" data-reveal="" style={{ "--i": i % 5 } as React.CSSProperties}>
                   <a href={f.map} target="_blank" rel="noreferrer" className="group flex min-h-[4.25rem] items-center justify-between gap-4 py-3">
-                    <span className="font-display text-[clamp(1.5rem,1.2rem+1.1vw,2.25rem)] leading-none text-pitch">
-                      <span className="draw">{f.name}</span>
+                    <span>
+                      <span className="block font-display text-[clamp(1.5rem,1.2rem+1.1vw,2.25rem)] leading-none text-pitch">
+                        <span className="draw">{f.name}</span>
+                      </span>
+                      {f.note ? <span className="mt-1.5 block text-[0.9375rem] text-muted">{f.note}</span> : null}
                     </span>
                     <span className="doc-row__tag">
                       Map <Arrow dir="out" />
