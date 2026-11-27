@@ -86,7 +86,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="bg-ink text-chalk">
+      <div className="hidden bg-ink text-chalk md:block">
         <div className="wrap flex min-h-11 items-center justify-between gap-4 text-[0.875rem]">
           <a href={site.fieldStatusUrl} target="_blank" rel="noreferrer" className="group inline-flex min-h-11 items-center gap-2 font-semibold">
             <span className="size-2 rounded-full bg-yellow" aria-hidden="true" />
@@ -198,6 +198,11 @@ export default function Header() {
           </button>
         </div>
         <nav aria-label="Mobile" className="wrap pb-12 pt-4">
+          <a href={site.fieldStatusUrl} target="_blank" rel="noreferrer" className="mb-4 flex min-h-12 items-center gap-3 font-semibold">
+            <span className="size-2.5 rounded-full bg-yellow" aria-hidden="true" />
+            Field status today <Arrow dir="out" className="text-yellow" />
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
           <ul className="border-t-2 border-chalk/20">
             {[{ label: "Home", href: "/" }, ...nav].map((l) => (
               <li key={l.href} className="border-b-2 border-chalk/20">
@@ -227,6 +232,15 @@ export default function Header() {
             Registration <Arrow dir="out" />
             <span className="sr-only"> (opens in a new tab)</span>
           </a>
+          <ul className="mt-6 flex gap-2">
+            {site.social.map((s) => (
+              <li key={s.label}>
+                <a href={s.href} target="_blank" rel="noreferrer" aria-label={`Livingston Soccer Club on ${s.label}`} className="grid size-12 place-items-center border-2 border-chalk/25">
+                  <SocialIcon name={s.label} className="size-5" />
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
     </>

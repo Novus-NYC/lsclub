@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ageGroups, carpiniCup, fall2026, fields, legendsWinners, partners, site } from "@/data/site"
 import { Arrow, CenterCircle } from "@/lib/components/icons"
 import Photo from "@/lib/components/photo"
+import PitchCorner from "@/lib/components/pitch-corner"
 
 const programs = [
   {
@@ -42,106 +43,83 @@ const headlines = [
 export default function Home() {
   return (
     <>
-      {/* 1. The name, chalked onto the pitch. */}
-      <section
-        aria-labelledby="hero-title"
-        className="relative overflow-clip text-chalk"
-        style={{
-          background: "linear-gradient(to bottom, var(--pitch) 0, var(--pitch) calc(100% - var(--hang)), var(--chalk) calc(100% - var(--hang)))",
-          ["--hang" as string]: "clamp(6rem, 16vw, 15rem)",
-        }}
-      >
-        <div className="wrap relative pt-[clamp(2rem,5vw,4.5rem)]">
-          <p className="label text-yellow" data-reveal="">
-            Livingston, New Jersey
+      {/* 1. The opening: a real trophy moment in full color, the name chalked across it, and the
+          hero itself marked out as the corner of the pitch. The one load animation on the site. */}
+      <section aria-labelledby="hero-title" className="hero relative isolate overflow-clip bg-pitch text-chalk">
+        <div className="hero-media absolute inset-x-0 top-0 -z-10 overflow-hidden h-[64svh] md:inset-y-0 md:left-auto md:h-auto md:w-[64%]">
+          <Image
+            src="/photos/fall-2026/hs-boys-division.jpg"
+            alt="High school boys in green lifting a trophy under a blue sky and fall trees"
+            fill
+            priority
+            sizes="(min-width: 768px) 64vw, 100vw"
+            quality={85}
+            className="hero-img object-cover"
+          />
+          <div className="hero-scrim absolute inset-0" />
+          <p className="absolute right-[var(--gutter)] top-4 whitespace-nowrap text-right text-[0.8125rem] font-semibold text-chalk/90 [text-shadow:0_1px_8px_rgba(0,0,0,0.6)] md:bottom-[clamp(1.5rem,3vw,2.5rem)] md:top-auto">
+            In-Town HS Boys division, November 1, 2026
           </p>
-          <h1 id="hero-title" className="mt-3">
-            <span className="block whitespace-nowrap leading-[0.86] tracking-[-0.02em]" style={{ fontSize: "var(--t-hero)" }}>
+        </div>
+
+        <PitchCorner />
+
+        <div className="wrap relative flex min-h-[calc(100svh-var(--header-h))] flex-col pb-[clamp(3rem,6vw,5.5rem)] md:min-h-[min(calc(100svh-var(--header-h)-2.75rem),56rem)]">
+          <h1 id="hero-title" className="hero-title mt-[47svh] md:order-2 md:mt-auto">
+            <span className="hero-line block whitespace-nowrap leading-[0.86] tracking-[-0.02em]" style={{ fontSize: "var(--t-hero)" }}>
               Livingston
             </span>
-            <span className="mt-1 block text-yellow" style={{ fontSize: "calc(var(--t-hero) * 0.52)", lineHeight: 0.95 }}>
+            <span className="hero-line block text-yellow" style={{ fontSize: "calc(var(--t-hero) * 0.52)", lineHeight: 0.95, ["--d" as string]: "140ms" }}>
               Soccer Club
             </span>
           </h1>
-
-          {/* The halfway line, with the center circle sitting on it. */}
-          <div className="relative mt-[clamp(1.75rem,4vw,3rem)] h-[2px] bg-chalk/40" data-reveal="line">
-            <CenterCircle className="pointer-events-none absolute right-[8%] top-1/2 w-[clamp(16rem,34vw,30rem)] -translate-y-1/2 text-chalk/25 max-md:hidden" />
-          </div>
-
-          <div className="grid12 relative gap-y-12 pt-[clamp(2rem,4vw,3.5rem)]">
-            <div className="col-span-12 md:col-span-6 lg:col-span-5">
-              <p className="font-display text-[clamp(1.75rem,1.2rem+2vw,3rem)] leading-[1.02]" data-reveal="">
-                Practice with Purpose! Play with Passion!
-              </p>
-              <p className="t-lede mt-6 text-chalk/90" data-reveal="" style={{ "--i": 1 } as React.CSSProperties}>
-                Youth and adult Travel and In-Town soccer, run by volunteers promoting skill, teamwork, friendships and fun.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3" data-reveal="" style={{ "--i": 2 } as React.CSSProperties}>
-                <a href={site.registrationUrl} target="_blank" rel="noreferrer" className="btn btn--yellow">
-                  Registration <Arrow dir="out" />
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-                <Link href="#programs" className="btn btn--chalk">
-                  Find your program <Arrow dir="down" />
-                </Link>
-              </div>
+          <div className="hero-copy mt-8 md:order-1 md:mb-10 md:mt-0 md:w-[44%] md:pt-[clamp(1.5rem,3.5vw,3.5rem)] lg:w-[38%] xl:w-[34%]">
+            <p className="font-display text-[clamp(1.625rem,1.2rem+1.4vw,2.5rem)] leading-[1.02]">Practice with Purpose! Play with Passion!</p>
+            <p className="mt-5 text-[1.125rem] leading-[1.45] text-chalk/90 md:text-[1.1875rem]">
+              Youth and adult Travel and In-Town soccer, run by volunteers promoting skill, teamwork, friendships and fun.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href={site.registrationUrl} target="_blank" rel="noreferrer" className="btn btn--yellow">
+                Registration <Arrow dir="out" />
+                <span className="sr-only"> (opens in a new tab)</span>
+              </a>
+              <Link href="#programs" className="btn btn--chalk">
+                Find your program <Arrow dir="down" />
+              </Link>
             </div>
-            <Photo
-              src="/photos/fall-2026/hs-boys-division.jpg"
-              alt="High school boys in green lifting a trophy on a sunny fall day"
-              width={1200}
-              height={1600}
-              ratio="4 / 5"
-              position="50% 30%"
-              sizes="(min-width: 1024px) 34vw, (min-width: 768px) 44vw, 88vw"
-              caption="In-Town HS Boys division, November 1, 2026"
-              captionClassName="text-muted"
-              mark="split"
-              priority
-              className="col-span-12 max-md:mx-[clamp(0.5rem,4vw,2rem)] md:col-span-6 md:col-start-7 lg:col-span-5 lg:col-start-8 md:-mt-[clamp(2rem,9vw,9rem)]"
-            />
           </div>
         </div>
       </section>
 
-      {/* 2. This fall's trophies: one big team photo, the titles listed beside it. */}
-      <section aria-labelledby="champions" className="on-chalk bg-chalk">
+      {/* 2. This fall's trophies: the team photos themselves. A swipeable strip on phones,
+          a staggered wall of photos from tablets up. */}
+      <section aria-labelledby="champions" className="on-chalk overflow-clip bg-chalk">
         <div className="wrap pb-[var(--s-normal)] pt-[var(--s-tight)]">
           <h2 id="champions" className="t-h2 text-pitch" data-reveal="">
             Fall 2026 champions
           </h2>
-          <div className="grid12 mt-[clamp(2rem,4vw,3.5rem)] items-start gap-y-10">
-            <Link href="/news/fall-2026-travel-champions" className="group col-span-12 lg:col-span-7">
-              <Photo
-                src={fall2026[0].photo.src}
-                alt={fall2026[0].photo.alt}
-                width={fall2026[0].photo.w}
-                height={fall2026[0].photo.h}
-                ratio="3 / 2"
-                position="50% 45%"
-                sizes="(min-width: 1024px) 54vw, 94vw"
-                mark="pitch"
-              />
+          <ul className="champs mt-[clamp(1.75rem,4vw,3.5rem)]" data-reveal="">
+            {fall2026.map((t, i) => (
+              <li key={t.team} className={`champ champ--${i}`}>
+                <Link href="/news/fall-2026-travel-champions" className="group block">
+                  <div className="duo duo--deep relative" style={{ aspectRatio: "4 / 3" }}>
+                    <Image src={t.photo.src} alt={t.photo.alt} fill sizes="(min-width: 768px) 50vw, 84vw" quality={85} className="object-cover" />
+                    <p className="absolute inset-x-0 bottom-0 z-[1] p-[clamp(1rem,2.2vw,1.75rem)] font-display text-[clamp(1.75rem,1.2rem+1.8vw,3.25rem)] leading-[0.95] text-chalk">{t.team}</p>
+                  </div>
+                  <p className="mt-3 text-[1.0625rem] font-semibold text-pitch">{t.result}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-[clamp(2.5rem,5vw,4rem)] grid12 items-end gap-y-6 border-t-2 border-pitch pt-6">
+            <Link href="/news/lancers-sectional-champions" className="group col-span-12 md:col-span-8">
+              <p className="font-display text-[clamp(1.75rem,1.3rem+1.4vw,2.75rem)] leading-none text-pitch">
+                <span className="draw">Livingston HS Girls</span>
+              </p>
+              <p className="mt-2 text-[1.0625rem]">North 1, Group 4 sectional title, 3&ndash;2 over Ridgewood in a shootout</p>
             </Link>
-            <div className="col-span-12 lg:col-span-4 lg:col-start-9">
-              <ul className="border-t-2 border-pitch">
-                {fall2026.map((t, i) => (
-                  <li key={t.team} className="border-b-2 border-pitch/25 py-4" data-reveal="" style={{ "--i": i } as React.CSSProperties}>
-                    <p className="font-display text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] leading-none text-pitch">{t.team}</p>
-                    <p className="mt-1.5 text-[1.0625rem]">{t.result}</p>
-                  </li>
-                ))}
-                <li className="border-b-2 border-pitch/25 py-4" data-reveal="" style={{ "--i": 4 } as React.CSSProperties}>
-                  <Link href="/news/lancers-sectional-champions" className="group block">
-                    <p className="font-display text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] leading-none text-pitch">
-                      <span className="draw">Livingston HS Girls</span>
-                    </p>
-                    <p className="mt-1.5 text-[1.0625rem]">North 1, Group 4 sectional title, 3&ndash;2 over Ridgewood in a shootout</p>
-                  </Link>
-                </li>
-              </ul>
-              <Link href="/news/fall-2026-travel-champions" className="btn btn--pitch mt-8">
+            <div className="col-span-12 md:col-span-4 md:justify-self-end">
+              <Link href="/news/fall-2026-travel-champions" className="btn btn--pitch">
                 Team photos <Arrow />
               </Link>
             </div>

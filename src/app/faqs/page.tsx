@@ -75,7 +75,7 @@ export default function Faqs() {
                 Other frequently asked questions
               </h2>
               <DocList docs={faqDocs} className="mt-6" />
-              <Photo src="/photos/young-team-trophies.jpg" alt="Young players in blue Livingston Soccer Club shirts holding up small trophies, with their coach behind them" width={1600} height={1081} ratio="3 / 2" sizes="(min-width: 1024px) 30vw, 94vw" mark="pitch" className="mt-12" />
+              <Photo src="/photos/young-team-trophies.jpg" alt="Young players in blue Livingston Soccer Club shirts holding up small trophies, with their coach behind them" width={1600} height={1081} ratio="3 / 2" sizes="(min-width: 1024px) 30vw, 94vw" mark="pitch" priority className="mt-12" />
             </div>
           </aside>
         </div>

@@ -21,7 +21,7 @@ type Props = {
   tone?: boolean
 }
 
-/** Every photograph on the site: the green duotone, square corners, the L corner marks. */
+/** Every photograph on the site: full color with one shared grade, square corners, the L corner marks. */
 export default function Photo({ src, alt, width, height, ratio, sizes, caption, priority, mark = "chalk", position = "50% 50%", className = "", frameClassName = "", captionClassName = "", reveal = true, tone = true }: Props) {
   const markCls = mark === "none" ? "" : `corner corner--${mark}`
   return (
