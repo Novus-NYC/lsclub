@@ -57,16 +57,16 @@ function DivisionTable({ rows, caption, cols }: { rows: Division[]; caption: str
         </thead>
         <tbody>
           {rows.map((d) => (
-            <tr key={d.name} className="max-md:grid max-md:grid-cols-2 max-md:gap-x-4 max-md:border-t-2 max-md:border-pitch/20 max-md:py-4">
-              <th scope="row" className="font-display !text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] !normal-case !tracking-normal text-pitch max-md:col-span-2 max-md:!border-0 max-md:!py-0">
+            <tr key={d.name} className="max-md:grid max-md:grid-cols-2 max-md:gap-2 max-md:border-t-2 max-md:border-pitch/20 max-md:py-4">
+              <th scope="row" className="font-display !text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] !normal-case !tracking-normal text-pitch max-md:col-span-2 max-md:!border-0 max-md:!pb-1 max-md:!pt-0">
                 {d.name}
               </th>
               {cols.map((c) => {
                 const href = d[c.key]
                 return (
-                  <td key={c.key} className="max-md:!border-0 max-md:!py-0">
+                  <td key={c.key} className="max-md:!border-0 max-md:!py-0 max-md:!pr-0">
                     {href ? (
-                      <a href={href} target="_blank" rel="noreferrer" className="group inline-flex min-h-11 items-center gap-1.5 font-semibold text-turf">
+                      <a href={href} target="_blank" rel="noreferrer" className="group inline-flex min-h-11 items-center gap-1.5 font-semibold text-turf max-md:w-full max-md:justify-between max-md:border-2 max-md:border-pitch/15 max-md:bg-white max-md:px-3 max-md:text-[0.9375rem] max-md:text-pitch">
                         <span className="draw">{c.label}</span> <Arrow dir="out" className="text-[0.85em]" />
                         <span className="sr-only"> for {d.name} (opens in a new tab)</span>
                       </a>

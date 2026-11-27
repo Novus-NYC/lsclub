@@ -1,6 +1,7 @@
 import { Fragment } from "react"
 import Image from "next/image"
 import Link from "next/link"
+import PenaltyBox from "./penalty-box"
 import PitchCorner from "./pitch-corner"
 
 type Props = {
@@ -58,6 +59,8 @@ export default function PageHeader({ title, label, parent, intro, image, childre
     return (
       <header className="relative isolate overflow-clip bg-pitch text-chalk">
         <PitchCorner />
+        {/* The empty half of a text-only opener is the goal end: the box stands on the goal line. */}
+        <PenaltyBox className="absolute bottom-[clamp(0.75rem,2vw,1.75rem)] right-[clamp(1.5rem,4vw,4.5rem)] hidden w-[clamp(15rem,27vw,25rem)] text-chalk/45 md:block" />
         <div className="wrap relative pb-[clamp(3.5rem,8vw,7rem)] pt-[clamp(3rem,8vw,7rem)]">{body}</div>
       </header>
     )

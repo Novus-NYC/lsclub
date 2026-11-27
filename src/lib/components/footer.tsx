@@ -11,14 +11,13 @@ export default function Footer() {
     <footer className="relative overflow-clip bg-pitch text-chalk">
       <CenterCircle className="pointer-events-none absolute -right-[18rem] -top-[10rem] w-[44rem] text-chalk/10 max-md:-right-[22rem] max-md:w-[34rem]" />
 
-      <div className="wrap relative pt-[var(--s-normal)]">
+      <div className="wrap relative pt-[var(--s-tight)]">
         <div className="grid12 gap-y-10">
           <div className="col-span-12 lg:col-span-7">
-            <p className="label text-yellow">Who runs the club</p>
-            <p className="mt-4 max-w-[14ch] font-display text-[clamp(2.25rem,1rem+4.2vw,4.75rem)] leading-[0.98]">
+            <p className="max-w-[22ch] font-display text-[clamp(1.75rem,1.1rem+2.2vw,3rem)] leading-[1.02]">
               Livingston Soccer Club is a volunteer organization.
             </p>
-            <p className="t-lede mt-6 max-w-[36rem] text-chalk/90">
+            <p className="mt-4 max-w-[34rem] text-[1.125rem] text-chalk/90">
               All Board Members volunteer their time for the benefit of the children who play in our club.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -52,7 +51,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-[var(--s-tight)] grid grid-cols-2 gap-x-[var(--gutter)] gap-y-10 border-t-2 border-chalk/20 pt-10 lg:grid-cols-12">
+        <div className="mt-[clamp(2.5rem,5vw,4rem)] grid grid-cols-2 gap-x-[var(--gutter)] gap-y-10 border-t-2 border-chalk/20 pt-10 lg:grid-cols-12">
           <nav aria-label="Footer: Programs" className="lg:col-span-3">
             <h2 className="label text-yellow">Programs</h2>
             <ul className="mt-3">

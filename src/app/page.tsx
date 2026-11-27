@@ -1,9 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ageGroups, carpiniCup, fall2026, fields, legendsWinners, partners, site } from "@/data/site"
+import { ageGroups, carpiniCup, fields, legendsWinners, partners, site } from "@/data/site"
 import { Arrow, CenterCircle } from "@/lib/components/icons"
 import Photo from "@/lib/components/photo"
 import PitchCorner from "@/lib/components/pitch-corner"
+import PenaltyBox from "@/lib/components/penalty-box"
+import Champions from "@/lib/components/champions"
 
 const programs = [
   {
@@ -91,26 +93,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. This fall's trophies: the team photos themselves. A swipeable strip on phones,
-          a staggered wall of photos from tablets up. */}
+      {/* 2. This fall's trophies, as a team sheet beside the photo. */}
       <section aria-labelledby="champions" className="on-chalk overflow-clip bg-chalk">
         <div className="wrap pb-[var(--s-normal)] pt-[var(--s-tight)]">
           <h2 id="champions" className="t-h2 text-pitch" data-reveal="">
             Fall 2026 champions
           </h2>
-          <ul className="champs mt-[clamp(1.75rem,4vw,3.5rem)]" data-reveal="">
-            {fall2026.map((t, i) => (
-              <li key={t.team} className={`champ champ--${i}`}>
-                <Link href="/news/fall-2026-travel-champions" className="group block">
-                  <div className="duo duo--deep relative" style={{ aspectRatio: "4 / 3" }}>
-                    <Image src={t.photo.src} alt={t.photo.alt} fill sizes="(min-width: 768px) 50vw, 84vw" quality={85} className="object-cover" />
-                    <p className="absolute inset-x-0 bottom-0 z-[1] p-[clamp(1rem,2.2vw,1.75rem)] font-display text-[clamp(1.75rem,1.2rem+1.8vw,3.25rem)] leading-[0.95] text-chalk">{t.team}</p>
-                  </div>
-                  <p className="mt-3 text-[1.0625rem] font-semibold text-pitch">{t.result}</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <Champions />
           <div className="mt-[clamp(2.5rem,5vw,4rem)] grid12 items-end gap-y-6 border-t-2 border-pitch pt-6">
             <Link href="/news/lancers-sectional-champions" className="group col-span-12 md:col-span-8">
               <p className="font-display text-[clamp(1.75rem,1.3rem+1.4vw,2.75rem)] leading-none text-pitch">
@@ -130,13 +119,7 @@ export default function Home() {
       {/* 3. Programs, lettered like markings on the turf. */}
       <section id="programs" aria-labelledby="programs-title" className="relative isolate overflow-clip bg-turf text-chalk">
         {/* The goal end of the pitch, chalked under the programs: 18-yard box, 6-yard box, spot and D. */}
-        <svg aria-hidden="true" viewBox="0 -24 440 226" fill="none" className="pointer-events-none absolute bottom-0 left-1/2 -z-10 w-[clamp(22rem,52vw,46rem)] -translate-x-1/2 text-chalk/[0.16]">
-          <g stroke="currentColor" strokeWidth="3" vectorEffect="non-scaling-stroke">
-            <path d="M0 202V20h440v182M120 202v-60h200v60" vectorEffect="non-scaling-stroke" />
-            <path d="M140 20a100 100 0 0 1 160 0" vectorEffect="non-scaling-stroke" />
-          </g>
-          <circle cx="220" cy="80" r="4" fill="currentColor" />
-        </svg>
+        <PenaltyBox className="absolute bottom-0 left-1/2 -z-10 w-[clamp(22rem,52vw,46rem)] -translate-x-1/2 text-chalk/[0.16]" />
         <span aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-[3px] bg-chalk/[0.16]" />
         <div className="wrap pb-[clamp(9rem,22vw,20rem)] pt-[var(--s-normal)]">
           <h2 id="programs-title" className="t-h2" data-reveal="">
