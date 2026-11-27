@@ -128,8 +128,17 @@ export default function Home() {
       </section>
 
       {/* 3. Programs, lettered like markings on the turf. */}
-      <section id="programs" aria-labelledby="programs-title" className="bg-turf text-chalk">
-        <div className="wrap py-[var(--s-normal)]">
+      <section id="programs" aria-labelledby="programs-title" className="relative isolate overflow-clip bg-turf text-chalk">
+        {/* The goal end of the pitch, chalked under the programs: 18-yard box, 6-yard box, spot and D. */}
+        <svg aria-hidden="true" viewBox="0 -24 440 226" fill="none" className="pointer-events-none absolute bottom-0 left-1/2 -z-10 w-[clamp(22rem,52vw,46rem)] -translate-x-1/2 text-chalk/[0.16]">
+          <g stroke="currentColor" strokeWidth="3" vectorEffect="non-scaling-stroke">
+            <path d="M0 202V20h440v182M120 202v-60h200v60" vectorEffect="non-scaling-stroke" />
+            <path d="M140 20a100 100 0 0 1 160 0" vectorEffect="non-scaling-stroke" />
+          </g>
+          <circle cx="220" cy="80" r="4" fill="currentColor" />
+        </svg>
+        <span aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-[3px] bg-chalk/[0.16]" />
+        <div className="wrap pb-[clamp(9rem,22vw,20rem)] pt-[var(--s-normal)]">
           <h2 id="programs-title" className="t-h2" data-reveal="">
             Find your program
           </h2>
@@ -180,38 +189,29 @@ export default function Home() {
             />
           </div>
           <div className="col-span-12 lg:col-span-7 lg:col-start-6" data-reveal="">
-            <table className="sheet tabular-nums">
-              <caption className="sr-only">Carpini Cup finals: champion and finalist for each grade</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Grade</th>
-                  <th scope="col">Champion</th>
-                  <th scope="col" className="max-sm:hidden">
-                    Finalist
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {carpiniCup.map((r) => (
-                  <tr key={r.grade} className="border-pitch">
-                    <th scope="row" className="!text-[0.875rem] !tracking-[0.08em]">
-                      {r.grade}
-                    </th>
-                    <td className="!border-pitch/30">
-                      <span className="font-display text-[clamp(1.5rem,1.1rem+1.3vw,2.25rem)] leading-none">
-                        {r.champion}{"\u00a0"}{r.cs}
+            <h3 className="sr-only">Finals</h3>
+            <ul className="border-t-2 border-pitch">
+              {carpiniCup.map((r) => {
+                const pk = r.cs.includes("PK")
+                return (
+                  <li key={r.grade} className="border-b-2 border-pitch/25 py-[clamp(0.875rem,1.6vw,1.25rem)]">
+                    <p className="text-[0.875rem] font-bold">{r.grade}</p>
+                    <p className="score mt-2">
+                      <span className="text-right font-display text-[clamp(1.375rem,1rem+1.3vw,2.25rem)] leading-[1.02]">
+                        {r.champion}
+                        {pk ? <span className="ml-2 align-middle font-sans text-[0.8125rem] font-bold">(PK)</span> : null}
                       </span>
-                      <span className="mt-1 block text-[0.9375rem] sm:hidden">
-                        over {r.finalist}{"\u00a0"}{r.fs}
+                      <span className="score__bug">
+                        <span>{r.cs.replace(/\s*\(PK\)/, "")}</span>
+                        <span className="sr-only"> to </span>
+                        <span>{r.fs}</span>
                       </span>
-                    </td>
-                    <td className="text-[1.125rem] max-sm:hidden">
-                      {r.finalist}{"\u00a0"}{r.fs}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      <span className="text-[clamp(1.0625rem,0.95rem+0.5vw,1.375rem)] font-semibold leading-tight">{r.finalist}</span>
+                    </p>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </div>
       </section>

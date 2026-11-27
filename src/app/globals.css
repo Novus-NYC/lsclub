@@ -565,3 +565,54 @@
       linear-gradient(to top, rgba(18, 64, 43, 0.9) 0%, transparent 38%);
   }
 }
+
+/* Mown turf: every big green band is cut in broad stripes, like a pitch seen on TV. The stripes
+   only darken, so light text on them keeps (or gains) contrast. */
+:is(section, footer, header:not(.site-header)):is(.bg-pitch, .bg-turf) {
+  --mow: clamp(4.5rem, 8.5vw, 8.5rem);
+  background-image: repeating-linear-gradient(90deg, transparent 0 var(--mow), rgba(0, 0, 0, 0.07) var(--mow) calc(var(--mow) * 2));
+}
+
+/* Carpini Cup as scorelines: winner, the score bug, the other side. */
+.score {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: clamp(0.75rem, 1.6vw, 1.25rem);
+}
+.score__bug {
+  display: inline-flex;
+  font-family: var(--font-slab), Georgia, serif;
+}
+.score__bug span {
+  display: grid;
+  place-items: center;
+  min-width: clamp(2.25rem, 3.4vw, 3rem);
+  height: clamp(2.5rem, 3.6vw, 3.25rem);
+  background: var(--pitch);
+  color: var(--chalk);
+  font-size: clamp(1.375rem, 1.1rem + 0.9vw, 1.875rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.score__bug span + span {
+  border-left: 2px solid var(--yellow);
+}
+
+/* A ball for the pointer, on mouse and trackpad only. Links, buttons and text fields keep their
+   usual cursors so it stays obvious what can be clicked or typed in. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: url("/cursor-ball.svg") 16 16, auto;
+  }
+  a,
+  button,
+  summary,
+  label,
+  [role="button"] {
+    cursor: pointer;
+  }
+  :is(input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"]), textarea) {
+    cursor: text;
+  }
+}
